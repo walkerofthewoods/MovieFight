@@ -72,8 +72,8 @@ const runComparison = () => {
     leftSideStats.forEach((leftStat, index) => {
         const rightStat = rightSideStats[index];
 
-        const leftSideValue = parseInt(leftStat.dataset.value);
-        const rightSideValue = parseInt(rightStat.dataset.value);
+        const leftSideValue = parseFloat(leftStat.dataset.value);
+        const rightSideValue = parseFloat(rightStat.dataset.value);
 
         if (rightSideValue > leftSideValue) {
             leftStat.classList.remove('is-primary');
@@ -88,7 +88,7 @@ const runComparison = () => {
 const movieTemplate = (movieDetail) => {
     let tomatoScore = parseInt(movieDetail.Ratings[1].Value);
     const metascore = parseInt(movieDetail.Metascore);
-    const imdbRating = parseFloat (movieDetail.imdbRating);
+    const imdbRating = parseFloat(movieDetail.imdbRating);
     const imdbVotes = parseInt(movieDetail.imdbVotes.replace(/,/g, ''));
     const awards = movieDetail.Awards.split(' ').reduce((prev, word) => {
         const value = parseInt(word);
